@@ -1,9 +1,14 @@
 import React from "react";
 
+import { useTranslation } from "react-i18next";
+
 export default function App() {
+  const { t } = useTranslation("pages.App");
+
   return (
     <div className="App">
       <header className="App-header">
+        <h1>{t("example")}</h1>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
