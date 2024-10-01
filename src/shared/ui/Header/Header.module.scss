@@ -1,0 +1,19 @@
+@import "src/shared/styles/constants.scss";
+
+.header {
+  width: 100%;
+  height: 120px;
+  padding-left: 80px;
+  border-image-source: $line-gradient;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-image-slice: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header__text {
+  @extend .font-header;
+  white-space: pre-line;
+}

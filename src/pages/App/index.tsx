@@ -1,26 +1,16 @@
 import React from "react";
 
-import { useTranslation } from "react-i18next";
+import Header from "../../shared/ui/Header";
+import Layout from "../../shared/ui/Layout";
+
+import styles from "./App.module.scss";
 
 export default function App() {
-  const { t } = useTranslation("pages.App");
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>{t("example")}</h1>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <div className={styles["main-wrapper"]}>
+        <Header />
+      </div>
+    </Layout>
   );
 }

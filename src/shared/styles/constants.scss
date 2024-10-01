@@ -1,0 +1,10 @@
+$primary: #42567a;
+$light-divider: rgba($primary, 0.1);
+$line-gradient: linear-gradient(180deg, #3877ee -5%, #ef5da8 85%);
+
+.font-header {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 120%;
+  color: $primary;
+}
