@@ -1,5 +1,7 @@
 import React from "react";
 
+import SwiperEvents from "../../features/swiperEvents/ui/SwiperEvents";
+import categories from "../../shared/model/events";
 import Header from "../../shared/ui/Header";
 import Layout from "../../shared/ui/Layout";
 
@@ -10,6 +12,7 @@ export default function App() {
     <Layout>
       <div className={styles["main-wrapper"]}>
         <Header />
+        <SwiperEvents events={categories[0]} />
       </div>
     </Layout>
   );

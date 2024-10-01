@@ -34,6 +34,7 @@
         "allowShortCircuit": true
       }
     ],
+    "react/require-default-props": "off",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "import/newline-after-import": ["error", { "count": 1 }],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],

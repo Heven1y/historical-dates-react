@@ -1,13 +1,10 @@
 import React from "react";
 
+import { EventElementType } from "../../model/types";
+
 import styles from "./EventElement.module.scss";
 
-type EventElementProps = {
-  year: number;
-  text: string;
-};
-
-export default function EventElement({ year, text }: EventElementProps) {
+export default function EventElement({ year, text }: EventElementType) {
   return (
     <div className={styles["event-element"]}>
       <h4 className={styles["event-element__year"]}>{year}</h4>
