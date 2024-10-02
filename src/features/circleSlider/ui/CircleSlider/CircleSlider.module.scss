@@ -1,0 +1,28 @@
+@import "src/shared/styles/constants.scss";
+
+.circle-slider {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.circle-slider__pagination {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+
+.swiper__wrapper {
+  height: fit-content;
+}
+
+.swiper {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column-reverse;
+}

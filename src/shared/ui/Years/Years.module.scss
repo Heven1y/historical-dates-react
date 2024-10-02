@@ -1,0 +1,32 @@
+@import "src/shared/styles/constants.scss";
+
+.years {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 0 80px;
+}
+
+.years__horizontal-line {
+  width: 100%;
+  height: 1px;
+  background-color: $light-divider;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.year--start {
+  @extend .font-years;
+  color: $secondary;
+  z-index: 1;
+}
+
+.year--end {
+  @extend .font-years;
+  color: $highlight;
+  z-index: 1;
+}

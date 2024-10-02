@@ -1,6 +1,8 @@
 $primary: #42567a;
 $secondary: #3877ee;
+$highlight: #ef5da8;
 $light-divider: rgba($primary, 0.1);
+$navigation-circle-slider: rgba($primary, 0.5);
 $line-gradient: linear-gradient(180deg, #3877ee -5%, #ef5da8 85%);
 
 .font-header {
@@ -15,6 +17,20 @@ $line-gradient: linear-gradient(180deg, #3877ee -5%, #ef5da8 85%);
   font-weight: 400;
   line-height: 150%;
   color: $primary;
+}
+
+.font-counter {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: normal;
+  color: $primary;
+}
+
+.font-years {
+  font-size: 12.5rem;
+  font-weight: 700;
+  line-height: 80%;
+  letter-spacing: -4px;
 }
 
 .font-small-year {

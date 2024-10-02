@@ -1,0 +1,25 @@
+@import "src/shared/styles/constants.scss";
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 80px;
+}
+
+.nav__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.nav__counter {
+  @extend .font-counter;
+  color: $primary;
+}
+
+.nav__buttons {
+  display: flex;
+  gap: 20px;
+}
