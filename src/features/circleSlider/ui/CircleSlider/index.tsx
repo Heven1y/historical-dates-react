@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Navigation, Pagination } from "swiper/modules";
-import { Swiper } from "swiper/react";
-import "swiper/css";
+import { observer } from "mobx-react";
 
+import { useCircleSliderStore } from "../../store/provider";
+import CirclePagination from "../CirclePagination";
 import NavigationSwiper from "../NavigationSwiper";
 import YearsSwiper from "../YearsSwiper";
 
@@ -13,22 +13,21 @@ type CircleSliderProps = {
   children: React.ReactNode;
 };
 
-export default function CircleSlider({ children }: CircleSliderProps) {
+function CircleSlider({ children }: CircleSliderProps) {
+  const childrenArray = React.Children.toArray(children);
+  const { activeSlideIndex } = useCircleSliderStore();
+
   return (
     <div className={styles["circle-slider"]}>
-      <Swiper
-        className={styles.swiper}
-        wrapperClass={styles["swiper__wrapper"]}
-        slidesPerView={1}
-        allowTouchMove={false}
-        modules={[Navigation, Pagination]}
-      >
-        <div className={styles["circle-slider__pagination"]}>
-          <YearsSwiper />
-          <NavigationSwiper />
-        </div>
-        {children}
-      </Swiper>
+      <div className={styles["circle-slider__pagination"]}>
+        <YearsSwiper>
+          <CirclePagination />
+        </YearsSwiper>
+        <NavigationSwiper />
+      </div>
+      {childrenArray[activeSlideIndex]}
     </div>
   );
 }
+
+export default observer(CircleSlider);

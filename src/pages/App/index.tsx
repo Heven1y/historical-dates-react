@@ -1,7 +1,6 @@
 import React from "react";
 
-import { SwiperSlide } from "swiper/react";
-
+import { CircleSliderStoreProvider } from "../../features/circleSlider/store/provider";
 import CircleSlider from "../../features/circleSlider/ui/CircleSlider";
 import SwiperEvents from "../../features/swiperEvents/ui/SwiperEvents";
 import categories from "../../shared/model/events";
@@ -15,15 +14,17 @@ export default function App() {
     <Layout>
       <div className={styles["main-wrapper"]}>
         <Header />
-        <CircleSlider>
-          {categories.map((categorie) => {
-            return (
-              <SwiperSlide key={categorie.id}>
-                <SwiperEvents events={categorie.events} />
-              </SwiperSlide>
-            );
-          })}
-        </CircleSlider>
+        <CircleSliderStoreProvider totalSlides={categories.length}>
+          <CircleSlider>
+            {categories.map((categorie) => {
+              return (
+                <div key={categorie.id}>
+                  <SwiperEvents events={categorie.events} />
+                </div>
+              );
+            })}
+          </CircleSlider>
+        </CircleSliderStoreProvider>
         <div className={styles["main-wrapper__centre-line"]} />
       </div>
     </Layout>

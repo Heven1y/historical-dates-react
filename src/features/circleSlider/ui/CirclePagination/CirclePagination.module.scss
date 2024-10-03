@@ -1,0 +1,27 @@
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 530px;
+  height: 530px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.point {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.active {
+  background-color: #ff0000;
+}

@@ -3,7 +3,6 @@
 .circle-slider {
   display: flex;
   flex-grow: 1;
-  overflow: hidden;
   flex-direction: column;
 }
 
@@ -11,7 +10,9 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-end;
+  gap: 140px;
+  padding-bottom: 50px;
   position: relative;
 }
 
