@@ -3,7 +3,9 @@ import React from "react";
 import { useGSAP } from "@gsap/react";
 import classNames from "classnames";
 import gsap from "gsap";
+import { useTranslation } from "react-i18next";
 
+import categories from "../../../../shared/model/events";
 import { RADIUS_CIRCLE } from "../../config/constants";
 import { useCircleSliderStore } from "../../store/provider";
 
@@ -12,6 +14,7 @@ import styles from "./CirclePagination.module.scss";
 export default function CirclePagination() {
   const { activeSlideIndex, toSlide, totalSlides } = useCircleSliderStore();
   const circleRef = React.useRef(null);
+  const { t } = useTranslation("features.CirclePagination");
 
   const handlePointClick = (index: number) => {
     toSlide(index);
@@ -21,32 +24,51 @@ export default function CirclePagination() {
   const rotateAngle = activeSlideIndex * angleStep;
 
   useGSAP(() => {
-    const points = gsap.utils.toArray(".point");
+    const slideIndexes = gsap.utils.toArray(".slideIndex");
+    const slideNames = gsap.utils.toArray(".slideName");
     gsap.to(circleRef.current, {
       rotate: -rotateAngle,
       duration: 1,
       ease: "power2.inOut",
     });
-    gsap.to(points, {
+    gsap.to(slideIndexes, {
       rotate: rotateAngle,
       duration: 1,
-      ease: "power2.inOut",
+      ease: "none",
+    });
+    gsap.to(slideNames, {
+      rotate: rotateAngle,
+      duration: 1,
+      ease: "none",
+    });
+    gsap.to(slideNames, {
+      opacity: 1,
+      delay: 1,
+      duration: 0.3,
+      ease: "none",
     });
   }, [rotateAngle]);
 
   const slidePages = Array.from({ length: totalSlides }).map(
     (_, index: number) => {
-      const angle = (index - 1) * angleStep * (Math.PI / 180); // переводим градусы в радианы
-      const x = RADIUS_CIRCLE * Math.cos(angle); // x-координата
-      const y = RADIUS_CIRCLE * Math.sin(angle); // y-координата
       const isActive = index === activeSlideIndex;
-      const classPoint = classNames(styles.point, "point", {
-        [styles.active]: isActive,
+      const angle = (index - 1) * angleStep * (Math.PI / 180);
+      const x = RADIUS_CIRCLE * Math.cos(angle);
+      const y = RADIUS_CIRCLE * Math.sin(angle);
+      const classPoint = classNames(styles.point, {
+        [styles["point--active"]]: isActive,
       });
+      const classNameSlide = classNames(
+        "slideName",
+        styles["point__slide-name"],
+      );
+      const classIndexSlide = classNames(
+        "slideIndex",
+        styles["point__slide-index"],
+      );
 
       return (
         <button
-          // eslint-disable-next-line react/no-array-index-key
           key={index}
           type="button"
           className={classPoint}
@@ -55,7 +77,10 @@ export default function CirclePagination() {
           }}
           onClick={() => handlePointClick(index)}
         >
-          {index}
+          <span className={classIndexSlide}>{index + 1}</span>
+          {isActive && (
+            <span className={classNameSlide}>{t(categories[index].id)}</span>
+          )}
         </button>
       );
     },

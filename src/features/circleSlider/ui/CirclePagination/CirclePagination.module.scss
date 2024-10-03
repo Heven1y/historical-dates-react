@@ -1,3 +1,5 @@
+@import "src/shared/styles/constants.scss";
+
 .circle {
   position: absolute;
   top: 50%;
@@ -5,23 +7,67 @@
   transform: translate(-50%, -50%);
   width: 530px;
   height: 530px;
-  border: 1px solid #ccc;
+  border: 1px solid $circle-border;
   border-radius: 50%;
   z-index: 1;
 }
 
 .point {
+  @extend .font-simple;
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: #ccc;
+  width: 6px;
+  height: 6px;
+  border: 1px solid $navigation-circle-slider;
+  background-color: $navigation-circle-slider;
   border-radius: 50%;
   top: 50%;
   left: 50%;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 0.3s;
+  padding: 0;
+  box-sizing: content-box;
+
+  &:hover {
+    background-color: $background-pagination-button;
+    width: 56px;
+    height: 56px;
+
+    .point__slide-index {
+      width: inherit;
+      height: inherit;
+    }
+  }
 }
 
-.active {
-  background-color: #ff0000;
+.point--active {
+  background-color: $background-pagination-button;
+  width: 56px;
+  height: 56px;
+
+  .point__slide-index {
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.point__slide-name {
+  @extend .font-simple;
+  font-weight: 700;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 76px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  transform-origin: -48px 50%;
+}
+
+.point__slide-index {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

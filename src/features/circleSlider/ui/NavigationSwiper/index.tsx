@@ -1,14 +1,12 @@
 import React from "react";
 
-import { observer } from "mobx-react";
-
 import numToTwoDigits from "../../../../shared/lib/numToTwoDigits";
 import { useCircleSliderStore } from "../../store/provider";
 import ButtonNavigation from "../ButtonNavigation";
 
 import styles from "./NavigationSwiper.module.scss";
 
-function NavigationSwiper() {
+export default function NavigationSwiper() {
   const store = useCircleSliderStore();
 
   return (
@@ -32,5 +30,3 @@ function NavigationSwiper() {
     </div>
   );
 }
-
-export default observer(NavigationSwiper);

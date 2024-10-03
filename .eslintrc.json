@@ -40,6 +40,7 @@
         "allowAfterThis": true
       }
     ],
+    "react/no-array-index-key": "off",
     "react/require-default-props": "off",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "import/newline-after-import": ["error", { "count": 1 }],

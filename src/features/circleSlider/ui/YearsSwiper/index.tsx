@@ -1,13 +1,15 @@
 import React from "react";
 
-import { observer } from "mobx-react";
-
 import Years from "../../../../shared/ui/Years";
 import { useCircleSliderStore } from "../../store/provider";
 
 import styles from "./YearsSwiper.module.scss";
 
-function YearsSwiper({ children }: { children: React.ReactNode }) {
+export default function YearsSwiper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { activeSlideIndex } = useCircleSliderStore();
   const indexToYearLeft = [1987, 1992, 1999, 2005, 2011, 2015];
   const indexToYearRight = [1991, 1997, 2004, 2010, 2014, 2022];
@@ -24,5 +26,3 @@ function YearsSwiper({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
-export default observer(YearsSwiper);

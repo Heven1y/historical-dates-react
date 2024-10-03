@@ -1,10 +1,10 @@
 export enum CategoriesIds {
-  Science = "Science",
-  Cinema = "Cinema",
-  Literature = "Literature",
-  Theater = "Theater",
-  Painting = "Painting",
-  Architecture = "Architecture",
+  Science = "science",
+  Cinema = "cinema",
+  Literature = "literature",
+  Theater = "theater",
+  Painting = "painting",
+  Architecture = "architecture",
 }
 
 export type EventElementType = {
