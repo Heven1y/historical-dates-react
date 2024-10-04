@@ -1,0 +1,32 @@
+@import "src/shared/styles/constants.scss";
+@import "src/shared/styles/mixins.scss";
+
+.main-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  border-style: solid;
+  border-color: $light-divider;
+  border-width: 0 1px;
+  padding: 120px 0 80px 0;
+
+  @include mini-laptop {
+    border-width: 0;
+  }
+}
+
+.main-wrapper__centre-line {
+  width: 1px;
+  height: 100vh;
+  background-color: $light-divider;
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  @include mini-laptop {
+    display: none;
+  }
+}

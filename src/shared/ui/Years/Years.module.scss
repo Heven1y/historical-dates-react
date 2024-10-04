@@ -1,0 +1,42 @@
+@import "src/shared/styles/constants.scss";
+@import "src/shared/styles/mixins.scss";
+
+.years {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+
+  @include mini-laptop {
+    justify-content: flex-start;
+    padding-left: 20px;
+    gap: 60px;
+  }
+}
+
+.years__horizontal-line {
+  width: 100%;
+  height: 1px;
+  background-color: $light-divider;
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  @include mini-laptop {
+    display: none;
+  }
+}
+
+.year--start {
+  @extend .font-years;
+  color: $secondary;
+  z-index: 1;
+}
+
+.year--end {
+  @extend .font-years;
+  color: $highlight;
+  z-index: 1;
+}

@@ -1,0 +1,21 @@
+@import "src/shared/styles/constants.scss";
+
+.mobile-pagination {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+}
+
+.mobile-pagination__point {
+  width: 6px;
+  height: 6px;
+  background-color: $navigation-circle-slider;
+  border-radius: 6px;
+}
+
+.mobile-pagination__point--active {
+  background-color: $primary;
+}

@@ -1,0 +1,102 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "import",
+    "@typescript-eslint",
+    "prettier",
+    "react-hooks"
+  ],
+  "rules": {
+    "@typescript-eslint/dot-notation": [
+      "error",
+      { "allowPattern": "^[a-z]+(__[a-z]+)+$" }
+    ],
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allowAfterThis": true
+      }
+    ],
+    "react/require-default-props": "off",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "external",
+          "builtin",
+          "internal",
+          "sibling",
+          "parent",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "components",
+            "group": "internal"
+          },
+          {
+            "pattern": "@/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "../**",
+            "group": "parent"
+          },
+          {
+            "pattern": "./**",
+            "group": "index"
+          },
+          {
+            "pattern": "**.scss",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "linebreak-style": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+@import "src/shared/styles/constants.scss";
+
+.event-element {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 320px;
+  height: 135px;
+}
+
+.event-element__year {
+  @extend .font-small-year;
+}
+
+.event-element__text {
+  @extend .font-simple;
+}
