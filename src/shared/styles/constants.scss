@@ -1,3 +1,5 @@
+@import "src/shared/styles/mixins.scss";
+
 $primary: #42567a;
 $secondary: #3877ee;
 $highlight: #ef5da8;
@@ -33,6 +35,10 @@ $line-gradient: linear-gradient(180deg, #3877ee -5%, #ef5da8 85%);
   font-weight: 700;
   line-height: 80%;
   letter-spacing: -4px;
+
+  @include mini-laptop {
+    font-size: 8.75rem;
+  }
 }
 
 .font-small-year {

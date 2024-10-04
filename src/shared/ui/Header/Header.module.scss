@@ -1,4 +1,5 @@
 @import "src/shared/styles/constants.scss";
+@import "src/shared/styles/mixins.scss";
 
 .header {
   width: 100%;
@@ -11,6 +12,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  @include mini-laptop {
+    border-left-width: 0;
+    padding-left: 20px;
+  }
 }
 
 .header__text {

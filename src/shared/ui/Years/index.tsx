@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import styles from "./Years.module.scss";
@@ -20,7 +21,7 @@ export default function Years({
   const startYearRef = React.useRef(null);
   const endYearRef = React.useRef(null);
 
-  React.useEffect(() => {
+  useGSAP(() => {
     gsap.to(startYearRef.current, {
       innerText: startYear,
       duration: 1,

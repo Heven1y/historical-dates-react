@@ -1,9 +1,14 @@
 @import "src/shared/styles/constants.scss";
+@import "src/shared/styles/mixins.scss";
 
 .nav {
   display: flex;
   justify-content: flex-start;
   padding-left: 80px;
+
+  @include mini-laptop {
+    padding-left: 20px;
+  }
 }
 
 .nav__wrapper {

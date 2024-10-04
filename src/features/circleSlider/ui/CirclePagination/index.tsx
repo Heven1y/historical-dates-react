@@ -16,10 +16,6 @@ export default function CirclePagination() {
   const circleRef = React.useRef(null);
   const { t } = useTranslation("features.CirclePagination");
 
-  const handlePointClick = (index: number) => {
-    toSlide(index);
-  };
-
   const angleStep = 360 / totalSlides;
   const rotateAngle = activeSlideIndex * angleStep;
 
@@ -36,59 +32,53 @@ export default function CirclePagination() {
       duration: 1,
       ease: "none",
     });
-    gsap.to(slideNames, {
-      rotate: rotateAngle,
-      duration: 1,
-      ease: "none",
-    });
-    gsap.to(slideNames, {
-      opacity: 1,
-      delay: 1,
-      duration: 0.3,
-      ease: "none",
-    });
+    gsap
+      .timeline()
+      .to(slideNames, {
+        rotate: rotateAngle,
+        duration: 1,
+        ease: "none",
+      })
+      .to(slideNames, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "none",
+      });
   }, [rotateAngle]);
 
-  const slidePages = Array.from({ length: totalSlides }).map(
-    (_, index: number) => {
-      const isActive = index === activeSlideIndex;
-      const angle = (index - 1) * angleStep * (Math.PI / 180);
-      const x = RADIUS_CIRCLE * Math.cos(angle);
-      const y = RADIUS_CIRCLE * Math.sin(angle);
-      const classPoint = classNames(styles.point, {
-        [styles["point--active"]]: isActive,
-      });
-      const classNameSlide = classNames(
-        "slideName",
-        styles["point__slide-name"],
-      );
-      const classIndexSlide = classNames(
-        "slideIndex",
-        styles["point__slide-index"],
-      );
+  const slidePagesCircle = categories.map((categorie, index: number) => {
+    const isActive = index === activeSlideIndex;
+    const angle = (index - 1) * angleStep * (Math.PI / 180);
+    const x = RADIUS_CIRCLE * Math.cos(angle);
+    const y = RADIUS_CIRCLE * Math.sin(angle);
+    const classPoint = classNames(styles.point, {
+      [styles["point--active"]]: isActive,
+    });
+    const classNameSlide = classNames("slideName", styles["point__slide-name"]);
+    const classIndexSlide = classNames(
+      "slideIndex",
+      styles["point__slide-index"],
+    );
 
-      return (
-        <button
-          key={index}
-          type="button"
-          className={classPoint}
-          style={{
-            transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%))`,
-          }}
-          onClick={() => handlePointClick(index)}
-        >
-          <span className={classIndexSlide}>{index + 1}</span>
-          {isActive && (
-            <span className={classNameSlide}>{t(categories[index].id)}</span>
-          )}
-        </button>
-      );
-    },
-  );
+    return (
+      <button
+        key={categorie.id}
+        type="button"
+        className={classPoint}
+        style={{
+          transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%))`,
+        }}
+        onClick={() => toSlide(index)}
+      >
+        <span className={classIndexSlide}>{index + 1}</span>
+        {isActive && <span className={classNameSlide}>{t(categorie.id)}</span>}
+      </button>
+    );
+  });
 
   return (
     <div className={styles.circle} ref={circleRef}>
-      {slidePages}
+      {slidePagesCircle}
     </div>
   );
 }

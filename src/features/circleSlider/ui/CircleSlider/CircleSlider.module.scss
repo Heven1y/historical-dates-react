@@ -1,19 +1,27 @@
 @import "src/shared/styles/constants.scss";
+@import "src/shared/styles/mixins.scss";
 
 .circle-slider {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  justify-content: space-between;
+  padding-top: 100px;
+}
+
+.circle-slider__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  @include mini-laptop {
+    flex-direction: column-reverse;
+  }
 }
 
 .circle-slider__pagination {
   display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 140px;
-  padding-bottom: 50px;
-  position: relative;
+  align-items: center;
 }
 
 .swiper__wrapper {

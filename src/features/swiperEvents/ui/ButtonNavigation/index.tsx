@@ -8,6 +8,7 @@ import styles from "./ButtonNavigation.module.scss";
 
 type ButtonNavigationProps = {
   turnArrowToLeft?: boolean;
+  hidden?: boolean;
 };
 
 const ButtonNavigation = React.forwardRef<
@@ -17,9 +18,12 @@ const ButtonNavigation = React.forwardRef<
   const classArrowIcon = classNames(styles["button__icon"], {
     [styles["button__icon--left"]]: props.turnArrowToLeft,
   });
+  const classButton = classNames(styles.button, {
+    [styles["button--hidden"]]: props.hidden,
+  });
 
   return (
-    <button ref={ref} className={styles.button} type="button">
+    <button ref={ref} className={classButton} type="button">
       <ArrowIcon className={classArrowIcon} />
     </button>
   );
