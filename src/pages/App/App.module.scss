@@ -16,6 +16,10 @@
   @include mini-laptop {
     border-width: 0;
   }
+
+  @include tablet {
+    padding: 60px 0 40px 0;
+  }
 }
 
 .main-wrapper__centre-line {

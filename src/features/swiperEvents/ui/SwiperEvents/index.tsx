@@ -55,7 +55,7 @@ export default function SwiperEvents({ events }: SwiperEventsType) {
         className={styles.swiper}
         modules={[Navigation]}
         spaceBetween={20}
-        slidesPerView={2}
+        slidesPerView="auto"
         grabCursor
         navigation={navigationRefs}
         breakpoints={{
@@ -67,10 +67,14 @@ export default function SwiperEvents({ events }: SwiperEventsType) {
             slidesPerView: 2,
             spaceBetween: 40,
           },
+          440: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
         }}
       >
         {events.map((eventItem) => (
-          <SwiperSlide key={eventItem.year}>
+          <SwiperSlide className={styles["swiper__slide"]} key={eventItem.year}>
             <EventElement year={eventItem.year} text={t(eventItem.text)} />
           </SwiperSlide>
         ))}

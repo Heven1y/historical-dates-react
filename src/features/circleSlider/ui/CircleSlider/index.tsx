@@ -3,9 +3,11 @@ import React from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { observer } from "mobx-react";
+import { useTranslation } from "react-i18next";
 
 import { BREACKPOINT_MOBILE } from "../../../../shared/config/constants";
 import useWindowWidthResize from "../../../../shared/hooks/useWindowWidthResize";
+import categories from "../../../../shared/model/events";
 import { useCircleSliderStore } from "../../store/provider";
 import CirclePagination from "../CirclePagination";
 import MobilePagination from "../MobilePagination";
@@ -23,6 +25,7 @@ function CircleSlider({ children }: CircleSliderProps) {
   const windowWidth = useWindowWidthResize();
   const slideRef = React.useRef(null);
   const { activeSlideIndex } = useCircleSliderStore();
+  const { t } = useTranslation("features.CircleSlider");
 
   const [animationIndexSlide, setAnimationIndexSlide] =
     React.useState(activeSlideIndex);
@@ -58,7 +61,16 @@ function CircleSlider({ children }: CircleSliderProps) {
           <NavigationSwiper />
           {isMobile && <MobilePagination />}
         </div>
-        <div ref={slideRef}>{childrenArray[animationIndexSlide]}</div>
+        <div className={styles.slide} ref={slideRef}>
+          {isMobile && (
+            <div className={styles["slide__title-wrapper"]}>
+              <h4 className={styles["slide__title"]}>
+                {t(categories[animationIndexSlide].id)}
+              </h4>
+            </div>
+          )}
+          {childrenArray[animationIndexSlide]}
+        </div>
       </div>
     </div>
   );
