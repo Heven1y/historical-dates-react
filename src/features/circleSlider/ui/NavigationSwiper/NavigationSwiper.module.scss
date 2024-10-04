@@ -17,6 +17,10 @@
   gap: 20px;
   width: fit-content;
   height: fit-content;
+
+  @include big-mobile {
+    gap: 10px;
+  }
 }
 
 .nav__counter {
@@ -27,4 +31,7 @@
 .nav__buttons {
   display: flex;
   gap: 20px;
+  @include big-mobile {
+    gap: 10px;
+  }
 }

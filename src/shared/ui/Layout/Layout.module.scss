@@ -14,4 +14,8 @@
   @include mini-laptop {
     padding: 0 20px;
   }
+
+  @include big-mobile {
+    padding: 0;
+  }
 }

@@ -1,11 +1,16 @@
 @import "src/shared/styles/constants.scss";
+@import "src/shared/styles/mixins.scss";
 
 .event-element {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 320px;
+  width: fit-content;
   height: 135px;
+
+  @include tablet {
+    height: fit-content;
+  }
 }
 
 .event-element__year {

@@ -7,6 +7,10 @@
   flex-direction: column;
   justify-content: space-between;
   padding-top: 100px;
+
+  @include big-mobile {
+    padding-top: 60px;
+  }
 }
 
 .circle-slider__wrapper {
@@ -24,14 +28,22 @@
   align-items: center;
 }
 
-.swiper__wrapper {
-  height: fit-content;
+.slide {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
 }
 
-.swiper {
-  width: 100%;
-  flex-grow: 1;
+.slide__title-wrapper {
   display: flex;
-  justify-content: flex-start;
-  flex-direction: column-reverse;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: $light-divider;
+  height: 50px;
+  align-items: center;
+}
+
+.slide__title {
+  @extend .font-title-slide;
 }

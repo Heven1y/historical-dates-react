@@ -1,4 +1,5 @@
 @import "src/shared/styles/constants.scss";
+@import "src/shared/styles/mixins.scss";
 
 .button {
   width: 50px;
@@ -13,6 +14,11 @@
   border-color: $navigation-circle-slider;
   border-style: solid;
 
+  @include big-mobile {
+    width: 25px;
+    height: 25px;
+  }
+
   cursor: pointer;
 
   &:disabled {
@@ -24,6 +30,11 @@
   color: $primary;
   width: 10px;
   height: 14px;
+
+  @include big-mobile {
+    width: 10px;
+    height: 8px;
+  }
 }
 
 .button__icon--left {
